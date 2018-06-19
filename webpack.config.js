@@ -32,7 +32,7 @@ module.exports = (env) => { // Ta funkcja jako parametr będzie zawierać środo
          module: {
             rules: [
                 {
-                    test: /\.js$/,
+                    test: /\.js$/, // include js files
                     loader: "babel-loader",
                     options: {
                         plugins: env !== 'production' ? ['react-hot-loader/babel'] : []

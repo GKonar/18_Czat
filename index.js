@@ -33,21 +33,6 @@ io.on('connection', function(socket) { //socket to osoba, która właśnie wesz�
 	    users: userService.getAllUsers()
 	   });
 	});
-
-  socket.on('disconnect', () => {
-    userService.removeUser(socket.id);
-    socket.broadcast.emit('update', {
-      users: userService.getAllUsers()
-    });
-  });
-
-  socket.on('message', function(message){
-    const {name} = userService.getUserById(socket.id);
-    socket.broadcast.emit('message', {
-      text: message.text,
-      from: name
-    });
-  });
 //funkcja, która ma się wykonać po utraceniu przez klienta połączenia z serwerem
   socket.on('disconnect', () => {
     userService.removeUser(socket.id);

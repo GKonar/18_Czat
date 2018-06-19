@@ -25,7 +25,7 @@ class App extends Component {
   		socket.on('update', ({users}) => this.chatUpdate(users));
 	}
 
-	messageReceive(message) { //obiera wiadomości , a następnie aktualizuje stan wiadomości
+	messageReceive(message) { //odbiera wiadomości , a następnie aktualizuje stan wiadomości
   		const messages = [message, ...this.state.messages];
   		this.setState({messages});
 	}
