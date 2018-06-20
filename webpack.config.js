@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeJsPlugin = require('optimize-js-plugin');
 const plugins = [new HtmlWebpackPlugin({
-    template: 'src/index.html',
+    template: 'public/index.html',
     filename: 'index.html',
     inject: 'body'
 })];
@@ -32,7 +32,7 @@ module.exports = (env) => { // Ta funkcja jako parametr będzie zawierać środo
          module: {
             rules: [
                 {
-                    test: /\.js$/, // include js files
+                    test: /\.js$/,
                     loader: "babel-loader",
                     options: {
                         plugins: env !== 'production' ? ['react-hot-loader/babel'] : []

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import io from 'socket.io.client';
+import io from 'socket.io-client';
 import styles from './App.css';
 
 import MessageForm from './MessageForm';
@@ -25,7 +25,7 @@ class App extends Component {
   		socket.on('update', ({users}) => this.chatUpdate(users));
 	}
 
-	messageReceive(message) { //odbiera wiadomości , a następnie aktualizuje stan wiadomości
+	messageReceive(message) { //obiera wiadomości , a następnie aktualizuje stan wiadomości
   		const messages = [message, ...this.state.messages];
   		this.setState({messages});
 	}
