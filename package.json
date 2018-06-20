@@ -4,7 +4,11 @@
   "description": "czat app",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack"
+    "build": "NODE_ENV=production webpack",
+    "front":"webpack-dev-server --hot --env development",
+    "back":"node index.js",
+    "start":"node index.js & webpack-dev-server --hot --env development"
+    
   },
   "author": "konar",
   "license": "ISC",
@@ -25,7 +29,7 @@
     "socket.io": "^2.1.1",
     "socket.io-client": "^2.1.1",
     "style-loader": "^0.21.0",
-    "webpack": "^4.12.0",
+    "webpack": "^3.10.0",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^2.11.2"
   }

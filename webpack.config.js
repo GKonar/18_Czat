@@ -19,7 +19,6 @@ module.exports = (env) => { // Ta funkcja jako parametr będzie zawierać środo
         )
     }
     return {
-        mode: env || 'production', // dzięki zastosowaniu opcji env mamy większe możliwości modyfikacji 
         entry: (env !== 'production' ? [
                 'react-hot-loader/patch',
                 'webpack-dev-server/client?http://localhost:8080',
@@ -29,7 +28,15 @@ module.exports = (env) => { // Ta funkcja jako parametr będzie zawierać środo
           filename: './bundle.js',
           path: path.resolve(__dirname, 'public'),
         },
-         module: {
+        devServer: {
+            proxy: {
+                '/socket.io': {
+                target: 'http://localhost:3000',
+                ws: true
+                }
+            }
+        },
+        module: {
             rules: [
                 {
                     test: /\.js$/,
